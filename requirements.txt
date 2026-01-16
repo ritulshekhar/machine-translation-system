@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+transformers
+torch
+sentencepiece
+mosestokenizer
+pandas
+jinja2
+python-multipart
