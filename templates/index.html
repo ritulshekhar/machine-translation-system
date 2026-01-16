@@ -160,15 +160,30 @@
         </div>
 
         <div class="panel">
-            <h2>NMT Output <span id="confidence-score" style="margin-left:auto">Score: --</span></h2>
-            <div id="status-log">Ready</div>
-            <div id="output">...</div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                <h2 style="margin: 0;">NMT Output</h2>
+                <span id="confidence-score">Score: --</span>
+            </div>
 
-            <div style="margin-top: 2rem;">
-                <h2 style="font-size: 1rem">Debug Console</h2>
+            <div id="status-log">Ready</div>
+            <div id="output" placeholder="Translation will appear here...">...</div>
+
+            <div style="margin-top: 1.5rem; border-top: 1px solid #334155; padding-top: 1rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <label
+                        style="font-size: 0.85rem; color: #94a3b8; cursor: pointer; display: flex; align-items: center; gap: 0.5rem;">
+                        <input type="checkbox" id="debug-toggle" style="width: auto; margin: 0;">
+                        Show Token Debug View
+                    </label>
+                    <span class="badge" style="background: var(--accent); color: #0f172a;">Developer Only</span>
+                </div>
+            </div>
+
+            <div id="debug-container" style="display: none; margin-top: 1rem;">
+                <h2 style="font-size: 0.9rem; color: #94a3b8;">Debug Console</h2>
                 <div id="debug-panel"
-                    style="font-size: 0.8rem; background: #0f172a; padding: 1rem; border-radius: 8px; max-height: 200px; overflow-y: auto;">
-                    <div style="color: #94a3b8">Run translation to see internal steps...</div>
+                    style="font-size: 0.8rem; background: #0f172a; padding: 1rem; border-radius: 8px; max-height: 200px; overflow-y: auto; border: 1px solid #334155;">
+                    <div style="color: #475569">Run translation to see internal steps...</div>
                 </div>
             </div>
         </div>
@@ -182,6 +197,12 @@
         const statusLog = document.getElementById('status-log');
         const confidenceScore = document.getElementById('confidence-score');
         const debugPanel = document.getElementById('debug-panel');
+        const debugToggle = document.getElementById('debug-toggle');
+        const debugContainer = document.getElementById('debug-container');
+
+        debugToggle.addEventListener('change', () => {
+            debugContainer.style.display = debugToggle.checked ? 'block' : 'none';
+        });
 
         btn.addEventListener('click', async () => {
             const text = srcText.value.trim();
@@ -202,8 +223,12 @@
             });
             const tokenizeData = await tokenizeRes.json();
 
-            debugPanel.innerHTML += `<b>Tokens:</b> ${tokenizeData.tokens.map(t => `<span class="debug-token">${t}</span>`).join('')}<br>`;
+            debugPanel.innerHTML += `<b>Source Tokens:</b> ${tokenizeData.tokens.map(t => `<span class="debug-token">${t}</span>`).join('')}<br>`;
             debugPanel.innerHTML += `<b>Token IDs:</b> [${tokenizeData.token_ids.slice(0, 5).join(', ')}...]<br>`;
+            debugPanel.innerHTML += `<div style="margin-top:0.5rem; color:#38bdf8"><b>Output Stream:</b></div>`;
+            const streamDisplay = document.createElement('div');
+            streamDisplay.style.color = '#94a3b8';
+            debugPanel.appendChild(streamDisplay);
 
             const transData = new FormData();
             transData.append('text', text);
@@ -216,6 +241,7 @@
 
             const reader = response.body.getReader();
             const decoder = new TextDecoder();
+            let fullText = "";
 
             while (true) {
                 const { value, done } = await reader.read();
@@ -229,8 +255,19 @@
                         const data = JSON.parse(line);
                         if (data.type === 'status') {
                             statusLog.innerText = data.content;
+                            streamDisplay.innerHTML += `<div style="font-style:italic; font-size:0.7rem">> ${data.content}</div>`;
                         } else if (data.type === 'token') {
-                            output.innerText += data.content;
+                            // Show raw token in debug panel
+                            const tokenSpan = document.createElement('span');
+                            tokenSpan.className = 'debug-token';
+                            tokenSpan.innerText = data.content;
+                            streamDisplay.appendChild(tokenSpan);
+
+                            // Detokenize for main output
+                            // SentencePiece convention: ' ' (U+2581) is a space
+                            let tokenText = data.content.replace(' ', ' ');
+                            fullText += tokenText;
+                            output.innerText = fullText.trim();
                         } else if (data.type === 'final_score') {
                             confidenceScore.innerText = `COMET-QE: ${data.content}`;
                         }
@@ -238,6 +275,7 @@
                         console.error("Parse error", line);
                     }
                 }
+                debugPanel.scrollTop = debugPanel.scrollHeight;
             }
 
             statusLog.innerText = "Inference Complete";

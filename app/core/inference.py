@@ -132,7 +132,8 @@ class IndicTransEngine:
                     # Take one word if no phrase match
                     parts = temp_text.split(maxsplit=1)
                     word = parts[0]
-                    translated_chunks.append(f" ({word})")
+                    # Clean fallback: just use the word, possibly adding as a separate token
+                    translated_chunks.append(f" {word}")
                     temp_text = parts[1] if len(parts) > 1 else ""
 
             tokens = translated_chunks if translated_chunks else lang_repo["default"]
