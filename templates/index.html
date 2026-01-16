@@ -145,7 +145,6 @@
     </header>
 
     <div class="container">
-        <!-- Input Side -->
         <div class="panel">
             <h2>Source Input <span class="badge">English</span></h2>
             <textarea id="src-text" placeholder="e.g. engine clutch brake">engine clutch brake</textarea>
@@ -160,7 +159,6 @@
             <button id="translate-btn">Translate (Run Inference)</button>
         </div>
 
-        <!-- Output Side -->
         <div class="panel">
             <h2>NMT Output <span id="confidence-score" style="margin-left:auto">Score: --</span></h2>
             <div id="status-log">Ready</div>
@@ -189,14 +187,12 @@
             const text = srcText.value.trim();
             if (!text) return;
 
-            // Reset UI
             btn.disabled = true;
             output.innerText = "";
             statusLog.innerText = "Initializing...";
             confidenceScore.innerText = "Score: --";
             debugPanel.innerHTML = "<b>Pre-processing:</b> Normalization...<br>";
 
-            // 1. Get Tokenization Debug Info
             const formData = new FormData();
             formData.append('text', text);
 
@@ -209,7 +205,6 @@
             debugPanel.innerHTML += `<b>Tokens:</b> ${tokenizeData.tokens.map(t => `<span class="debug-token">${t}</span>`).join('')}<br>`;
             debugPanel.innerHTML += `<b>Token IDs:</b> [${tokenizeData.token_ids.slice(0, 5).join(', ')}...]<br>`;
 
-            // 2. Start Streaming Translation
             const transData = new FormData();
             transData.append('text', text);
             transData.append('lang', targetLang.value);

@@ -7,7 +7,6 @@ import json
 
 app = FastAPI(title="Automotive MT Prototype")
 
-# Templates setup
 templates = Jinja2Templates(directory="templates")
 
 @app.get("/", response_class=HTMLResponse)
