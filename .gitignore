@@ -1,0 +1,8 @@
+.venv/
+__pycache__/
+*.pyc
+app/brain/
+.DS_Store
+# Confidential glossary
+glossary/*.xlsx
+"glossary/ Technical Terms for transliteration_10 Languages _4 Dec 25.xlsx"

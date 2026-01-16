@@ -98,11 +98,13 @@
 
         #output {
             min-height: 50px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
+            line-height: 1.5;
             border-left: 3px solid var(--accent);
-            padding-left: 1rem;
+            padding: 1rem;
             margin: 1rem 0;
             white-space: pre-wrap;
+            word-wrap: break-word;
         }
 
         .debug-token {
@@ -139,6 +141,10 @@
 </head>
 
 <body>
+    <div id="mock-warning"
+        style="width: 100%; background: #78350f; color: #fde68a; padding: 0.5rem; text-align: center; font-size: 0.85rem; border-bottom: 1px solid #92400e; display: none;">
+        ⚠️ <b>MOCK MODE:</b> These translations are simulated for UI/UX demonstration of the IndicTrans2 pipeline.
+    </div>
     <header style="width:100%; max-width:900px; margin-bottom: 2rem;">
         <h1 style="margin:0; font-size:1.5rem">Multilingual <span style="color:var(--accent)">Machine Translation</span>
         </h1>
@@ -166,7 +172,15 @@
             </div>
 
             <div id="status-log">Ready</div>
-            <div id="output" placeholder="Translation will appear here...">...</div>
+
+            <div style="margin-top: 1rem;">
+                <label
+                    style="font-size: 0.75rem; color: var(--accent); font-weight: bold; text-transform: uppercase; letter-spacing: 0.05em;">Final
+                    Detokenized Output</label>
+                <div id="output" placeholder="Translation will appear here..."
+                    style="background: rgba(15, 23, 42, 0.5); border-radius: 8px; margin-top: 0.5rem; font-family: 'Inter', sans-serif;">
+                    ...</div>
+            </div>
 
             <div style="margin-top: 1.5rem; border-top: 1px solid #334155; padding-top: 1rem;">
                 <div style="display: flex; justify-content: space-between; align-items: center;">
@@ -199,6 +213,7 @@
         const debugPanel = document.getElementById('debug-panel');
         const debugToggle = document.getElementById('debug-toggle');
         const debugContainer = document.getElementById('debug-container');
+        const mockWarning = document.getElementById('mock-warning');
 
         debugToggle.addEventListener('change', () => {
             debugContainer.style.display = debugToggle.checked ? 'block' : 'none';
@@ -222,6 +237,13 @@
                 body: formData
             });
             const tokenizeData = await tokenizeRes.json();
+
+            // Handle mock mode warning visibility
+            if (tokenizeData.is_mock) {
+                mockWarning.style.display = 'block';
+            } else {
+                mockWarning.style.display = 'none';
+            }
 
             debugPanel.innerHTML += `<b>Source Tokens:</b> ${tokenizeData.tokens.map(t => `<span class="debug-token">${t}</span>`).join('')}<br>`;
             debugPanel.innerHTML += `<b>Token IDs:</b> [${tokenizeData.token_ids.slice(0, 5).join(', ')}...]<br>`;
