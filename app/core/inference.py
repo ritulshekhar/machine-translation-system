@@ -34,7 +34,7 @@ class IndicTransEngine:
                 "ensure": "खात्री करणे", "all": "सर्व", "safety": "सुरक्षा", "checks": "तपासणी", "completed": "पूर्ण झाले",
                 "this": "हे", "includes": "समाविष्ट आहे", "verifying": "पडताळणी", "inspecting": "तपासणी", "system": "प्रणाली",
                 "confirming": "पुष्टी करणे", "that": "की", "fuel": "इंधन", "tank": "टाकी", "sufficiently": "पुरेशा प्रमाणात",
-                "filled": "भरले", "if": "जर", "any": "कोणतेही", "warning": "चेतावणी", "indicators": "दर्शक", "appear": "दिसतात",
+                "filled": "भरले", "if": "जर", "any": "कोणतेही", "warning": "चेतावनी", "indicators": "दर्शक", "appear": "दिसतात",
                 "on": "वर", "dashboard": "डॅशबोर्ड", "they": "ते", "should": "पाहिजे", "not": "नाही", "ignored": "दुर्लक्षीत",
                 "as": "कारण", "often": "नेहमी", "signal": "संकेत", "potential": "संभाव्य", "mechanical": "यांत्रिक",
                 "issues": "समस्या", "once": "एकदा", "allowed": "परवानगी", "idle": "आयडल", "for": "साठी", "few": "काही",
@@ -68,14 +68,30 @@ class IndicTransEngine:
                 "confirming": "నిర్ధారించడం", "that": "అని", "fuel": "ఇంధనం", "tank": "ట్యాంక్", "sufficiently": "తగినంతగా",
                 "filled": "నిండిన", "if": "ఒకవేళ", "any": "ఏదైనా", "warning": "హెచ్చరిక", "indicators": "సూచికలు", "appear": "కనిపిస్తే",
                 "on": "పై", "dashboard": "డాష్‌బోర్డ్", "they": "అవి", "should": "చేయాలి", "not": "కూడదు", "ignored": "నిర్లక్ష్యం",
-                "as": "ఎందుకంటే", "often": "తరచుగా", "signal": "సంకేతం", "potential": "సంభావ్య", "mechanical": "మెకానికల్",
+                "as": "ఎందుకంటే", "often": "తరచుగా", "signal": "संकेत", "potential": "संभाव्य", "mechanical": "మెకానికల్",
                 "issues": "సమస్యలు", "once": "ఒకసారి", "allowed": "అనుమతించాలి", "idle": "ఐడిల్", "for": "కోసం", "few": "కొన్ని",
                 "minutes": "నిమిషాలు", "so": "తద్వారా", "internal": "అంతర్గత", "components": "భాగాలు", "reach": "చేరుకుంటాయి",
-                "optimal": "సరైన", "operating": "నిర్వహణ", "temperature": "ఉష్ణోగ్రత", "during": "సమయంలో", "time": "సమయం",
-                "sudden": "అకస్మాత్తుగా", "acceleration": "త్వరణం", "avoided": "తప్పించాలి", "prevent": "నిరోధించడానికి", "unnecessary": "అనవసరమైన",
+                "optimal": "సరైన", "operating": "నిర్వహణ", "temperature": "ఉష్णోగ్రత", "during": "సమయంలో", "time": "సమయం",
+                "sudden": "అకస్మాత్తుగా", "acceleration": "త్వరణం", "avoided": "తప్పించాలి", "prevent": "నిరోధించడానికి", "unnecessary": "അനவసరమైన",
                 "strain": "ఒత్తిడి", "by": "ద్వారా", "following": "క్రింది", "steps": "దశలు", "consistently": "నిరంతరం",
                 "overall": "మొత్తం", "lifespan": "జీవితకాలం", "extended": "పొడిగించబడుతుంది", "and": "మరియు", "unexpected": "అనుకోని",
                 "breakdowns": "వైఫల్యాలు", "minimized": "తగ్గించబడతాయి"
+            },
+            "hindi": {
+                "before": "पहले", "starting": "शुरू करने से पहले", "vehicle": "वाहन", "driver": "चालक", "must": "चाहिए",
+                "ensure": "सुनिश्चित", "all": "सभी", "safety": "सुरक्षा", "checks": "जांच", "completed": "पूरा",
+                "this": "यह", "includes": "शामिल", "verifying": "सत्यापित", "inspecting": "निरीक्षण", "system": "प्रणाली",
+                "confirming": "पुष्टि", "that": "कि", "fuel": "ईंधन", "tank": "टंकी", "sufficiently": "पर्याप्त",
+                "filled": "भरा", "if": "यदि", "any": "कोई", "warning": "चेतावनी", "indicators": "संकेतक", "appear": "दिखाई",
+                "on": "पर", "dashboard": "डैशबोर्ड", "they": "वे", "should": "चाहिए", "not": "नहीं", "ignored": "अनदेखा",
+                "as": "क्योंकि", "often": "अक्सर", "signal": "संकेत", "potential": "संभावित", "mechanical": "यांत्रिक",
+                "issues": "समस्याएं", "once": "एक बार", "allowed": "अनुमति", "idle": "आइडल", "for": "लिए", "few": "कुछ",
+                "minutes": "मिनट", "so": "ताकि", "internal": "आंतरिक", "components": "घटक", "reach": "पहुंच",
+                "optimal": "इष्टतम", "operating": "ऑपरेटिंग", "temperature": "तापमान", "during": "दौरान", "time": "समय",
+                "sudden": "अचानक", "acceleration": "त्वरण", "avoided": "बचना", "prevent": "रोकने", "unnecessary": "अनावश्यक",
+                "strain": "तनाव", "by": "द्वारा", "following": "निम्नलिखित", "steps": "कदम", "consistently": "लगातार",
+                "overall": "कुल", "lifespan": "जीवनकाल", "extended": "बढ़ाया", "and": "और", "unexpected": "अप्रत्यक्ष",
+                "breakdowns": "खराबी", "minimized": "कम"
             }
         }
 
@@ -83,13 +99,14 @@ class IndicTransEngine:
         mappings = {
             "marathi": {"a": "अ", "b": "ब", "c": "क", "d": "ड", "e": "ए", "f": "फ", "g": "ग", "h": "ह", "i": "इ", "j": "ज", "k": "क", "l": "ल", "m": "म", "n": "न", "o": "ओ", "p": "प", "q": "क", "r": "र", "s": "स", "t": "ट", "u": "उ", "v": "व", "w": "व", "x": "क्ष", "y": "य", "z": "झ"},
             "tamil": {"a": "அ", "b": "ப", "c": "க", "d": "ட", "e": "எ", "f": "ப", "g": "க", "h": "ஹ", "i": "இ", "j": "ஜ", "k": "க", "l": "ல", "m": "ம", "n": "ந", "o": "ஒ", "p": "ப", "q": "க", "r": "ர", "s": "ஸ", "t": "ட", "u": "உ", "v": "வ", "w": "வ", "x": "க", "y": "ய", "z": "ஸ"},
-            "telugu": {"a": "అ", "b": "బ", "c": "క", "d": "డ", "e": "ఎ", "f": "ఫ", "g": "గ", "h": "హ", "i": "ఇ", "j": "జ", "k": "క", "l": "ల", "m": "మ", "n": "న", "o": "ఒ", "p": "ప", "q": "క", "r": "ర", "s": "स", "t": "ట", "u": "ఉ", "v": "వ", "w": "వ", "x": "క", "y": "య", "z": "స"}
+            "telugu": {"a": "అ", "b": "బ", "c": "క", "d": "డ", "e": "ఎ", "f": "ఫ", "g": "గ", "h": "హ", "i": "ఇ", "j": "జ", "k": "క", "l": "ల", "m": "మ", "n": "న", "o": "ఒ", "p": "ప", "q": "క", "r": "ర", "s": "स", "t": "ట", "u": "ఉ", "v": "వ", "w": "వ", "x": "క", "y": "య", "z": "స"},
+            "hindi": {"a": "अ", "b": "ब", "c": "क", "d": "ड", "e": "ए", "f": "फ", "g": "ग", "h": "ह", "i": "इ", "j": "ज", "k": "क", "l": "ल", "m": "म", "n": "न", "o": "ओ", "p": "प", "q": "क", "r": "र", "s": "स", "t": "ट", "u": "उ", "v": "व", "w": "व", "x": "क्ष", "y": "य", "z": "ज़"}
         }
         target_map = mappings.get(lang.lower(), mappings["marathi"])
         return "".join([target_map.get(c, "") for c in text.lower() if c.isalpha()])
 
     def _load_glossary(self) -> Dict[str, Dict[str, str]]:
-        glossary = {"marathi": {}, "tamil": {}, "telugu": {}}
+        glossary = {"marathi": {}, "tamil": {}, "telugu": {}, "hindi": {}}
         if not os.path.exists(self.glossary_path):
             return glossary
         
@@ -99,6 +116,7 @@ class IndicTransEngine:
             marathi_col = next((c for c in cols if 'Marathi' in c), None)
             tamil_col = next((c for c in cols if 'Tamil' in c), None)
             telugu_col = next((c for c in cols if 'Telugu' in c), None)
+            hindi_col = next((c for c in cols if 'Hindi' in c), None)
             term_col = next((c for c in cols if 'Terms' in c), 'Technical Terms')
 
             for _, row in df.iterrows():
@@ -106,9 +124,11 @@ class IndicTransEngine:
                 if marathi_col:
                     glossary['marathi'][term] = str(row[marathi_col]).split('(')[0].strip()
                 if tamil_col:
-                    glossary['tamil'][term] = str(row[tamil_col]).strip()
+                    glossary['tamil'][term] = str(row[tamil_col]).split('(')[0].strip()
                 if telugu_col:
-                    glossary['telugu'][term] = str(row[telugu_col]).strip()
+                    glossary['telugu'][term] = str(row[telugu_col]).split('(')[0].strip()
+                if hindi_col:
+                    glossary['hindi'][term] = str(row[hindi_col]).split('(')[0].strip()
         except Exception:
             pass
         return glossary
