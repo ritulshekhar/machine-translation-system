@@ -2,7 +2,7 @@ from fastapi import FastAPI, Request, Form
 from fastapi.responses import HTMLResponse, StreamingResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
-from app.core.inference import engine
+from core.inference import engine
 import json
 
 app = FastAPI(title="Automotive MT Prototype")
